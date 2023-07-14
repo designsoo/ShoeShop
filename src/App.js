@@ -1,14 +1,35 @@
 import './App.css';
-import { useState } from 'react';
+import { lazy, Suspense, createContext, useEffect, useState } from 'react';
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
 import data from './data';
 import Home from './pages/Home';
-import Detail from './pages/Detail';
+// import Detail from './pages/Detail';
+// import Cart from './pages/Cart';
+const Detail = lazy(() => import('./pages/Detail'));
+const Cart = lazy(() => import('./pages/Cart'));
 
+// Context API
+//let Context1 = createContext();
+ 
 function App() {
-    let [shoes] = useState(data);
+    useEffect(() => {
+        localStorage.setItem('watched', JSON.stringify([]));
+    }, []);
+
+    let [shoes, setShoes] = useState(data);
     let navigate = useNavigate();
+
+    let result = useQuery(
+        ['data'],
+        () =>
+            axios.get('https://codingapple1.github.io/userdata.json').then((a) => {
+                return a.data;
+            }),
+        { staleTime: 2000 }
+    );
 
     return (
         <div className='App'>
@@ -25,48 +46,29 @@ function App() {
                         </Nav.Link>
                         <Nav.Link
                             onClick={() => {
-                                navigate('/detail');
+                                navigate('/cart');
                             }}
                         >
-                            Detail
+                            Cart
                         </Nav.Link>
+                    </Nav>
+                    <Nav className='ms-auto'>
+                        {result.isLoading && '로딩중'}
+                        {result.error && '에러남'}
+                        {result.data && result.data.name}
                     </Nav>
                 </Container>
             </Navbar>
 
-            <Routes>
-                <Route path='/' element={<Home shoes={shoes} />} />
-                <Route path='/detail/:id' element={<Detail shoes={shoes} />} />
-                {/* Nested Routes : 여러 유사한 페이지 필요할 때 사용
-                화면 어디에 보여줄지 적어줘야함 ==> nested routes의 element를 보여주는 곳은 <Outlet> */}
-                <Route path='/about' element={<About />}>
-                    <Route path='member' element={<div>member 소개 페이지</div>} />
-                    <Route path='location' element={<div>location 소개 페이지</div>} />
-                </Route>
-                <Route path='/event' element={<Event />}>
-                    <Route path='one' element={<p>첫 주문시 양배추즙 서비스</p>} />
-                    <Route path='two' element={<p>생일기념 쿠폰 받기</p>} />
-                </Route>
-                <Route path='*' element={<div>404 없는 페이지입니다.</div>} />
-            </Routes>
+            <Suspense fallback={<div>Loading....</div>}>
+                <Routes>
+                    <Route path='/' element={<Home shoes={shoes} setShoes={setShoes} />} />
+                    <Route path='/detail/:id' element={<Detail shoes={shoes} />} />
+                    <Route path='/cart' element={<Cart />} />
+                </Routes>
+            </Suspense>
         </div>
     );
 }
-function About() {
-    return (
-        <>
-            <h4>회사 정보</h4>
-            <Outlet></Outlet>
-        </>
-    );
-}
 
-function Event() {
-    return (
-        <>
-            <h4>오늘의 이벤트</h4>
-            <Outlet></Outlet>
-        </>
-    );
-}
 export default App;
