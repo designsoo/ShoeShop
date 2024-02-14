@@ -1,7 +1,7 @@
 # <img width="28" alt="ic-favicon" src="https://github.com/designsoo/ShoeShop/assets/77719310/92858c25-999d-4a2d-a1b3-bacf48438a32"> TickyTocky
 <img width="1920" alt="cover" src="https://github.com/designsoo/ShoeShop/assets/77719310/5925af3f-9eca-4978-a4ee-6ace8e958f11">
 
-## 📑 프로젝트 설명
+## 📑 서비스 소개
 팀의 업무와 일정을 관리할 수 있는 웹서비스입니다.
 
 ## 🔗 배포링크
