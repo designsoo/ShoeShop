@@ -76,6 +76,7 @@ React-modal<br>
 React-colorful<br>
   
 ### 2️⃣ 김희수
+#### - UI Design<br>
 #### - 초기 세팅<br>
 stylelint<br>
 SCSS: base/mixins/variables<br>
@@ -125,7 +126,7 @@ React-hook-form<br>
 #### - 공용 컴포넌트<br>
 Avatar<br>
 Breadcrumb<br>
-InvitationMembers<br>
+Invitation Members<br>
 Profile Modal<br>
 
 #### - 공용 레이아웃<br>
@@ -166,6 +167,13 @@ Tag Field<br>
 
 #### - 공용 레이아웃<br>
 Landing Page<br>
+
+## ✨ 주요 기능 시연
+### 👉 컬럼 생성, 할 일 생성
+https://github.com/designsoo/ShoeShop/assets/77719310/9730f247-9964-4d6f-ac74-09a4cb367bf7
+
+### 👉 댓글 생성
+https://github.com/designsoo/ShoeShop/assets/77719310/8b08641a-1387-47ec-9fc6-79509e425680
 
 ## 🛠️ Dev Tools
 <img src="https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=next.js&logoColor=white"> <img src="https://img.shields.io/badge/axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white"> <img src="https://img.shields.io/badge/reacthookform-EC5990?style=for-the-badge&logo=reacthookform&logoColor=white"> <img src="https://img.shields.io/badge/Zustand-F36D00?style=for-the-badge&logo=&logoColor=white"> <img src="https://img.shields.io/badge/SCSS-CC6699?style=for-the-badge&logo=sass&logoColor=white"> <br> <img src="https://img.shields.io/badge/stylelint-263238?style=for-the-badge&logo=stylelint&logoColor=white"> <img src="https://img.shields.io/badge/eslint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white"> <img src="https://img.shields.io/badge/prettier-F7B93E?style=for-the-badge&logo=prettier&logoColor=white"> <img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white"> <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"> <img src="https://img.shields.io/badge/reactmodal-61DAFB?style=for-the-badge&logo=&logoColor=white">
